@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ผลลัพธ์</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container center">
+    <h1>ผลลัพธ์ของคุณคือ...</h1>
+    <p id="message">กำลังโหลด...</p>
+    <h2 class="highlight" id="confession"></h1>
+    <img width=90px src="https://media.discordapp.net/attachments/1302641227639820381/1417508108158373991/IMG_0336.png?ex=68cabccd&is=68c96b4d&hm=464168d04866c874b3bc5481d46b646e7208fb1954341e7a9fd34448b471d054&=&format=webp&quality=lossless&width=779&height=930">
+    <p>เขินอ่าา จริงๆเค้าตั้งใจจะส่งไปขอเธอก่อนเธอเบรคแล้วจะแกล้งไปนอนแต่เธอดันขอเค้าก่อน5555 ดีใจอ่ะได้เขียนโค้ดจีบเธอ 
+        แบบนี้ไม่ต้องถามแล้วมั้งว่าเป็นแฟนกันมั้ย ก็เป็นไปแล้วอะเนาะ สัญญาว่าจะเป็นแฟนที่ดีไม่โกหกมีอะไรจะเล่าให้เธอฟังตลอด เธอก็พูดได้ทุกเรื่องไม่ต้องกลัวเค้าไม่โอเคเค้าชอบเธอที่เธอเป็นเธอแบบนี้แหละ
+    </p>
+
+    <div class="rating">
+      <p>ให้คะแนนแบบประเมินนี้หน่อย ⭐️</p>
+      <div class="stars" id="stars">
+        ★★★★★
+      </div>
+      <p id="rating-text"></p>
+    </div>
+  </div>
+
+  <script>
+    const name = localStorage.getItem("quizName") || "คุณ";
+    document.getElementById("message").textContent = `จริงๆ แล้วคุณ${name}ไม่เหมาะกับหนังเรื่องไหนเลย`;
+    document.getElementById("confession").textContent = `คุณ${name}เหมาะจะเป็นแฟนเค้าที่สุด`;
+    const stars = document.getElementById("stars");
+    const ratingText = document.getElementById("rating-text");
+
+    let selected = 0;
+
+    stars.innerHTML = "";
+    for (let i = 1; i <= 5; i++) {
+      let star = document.createElement("span");
+      star.textContent = "★";
+      star.classList.add("star");
+      star.dataset.value = i;
+
+      star.onclick = () => {
+        selected = i;
+        updateStars();
+        ratingText.textContent = `คุณให้ ${selected} ดาว ขอบคุณนะ 💖`;
+      };
+
+      stars.appendChild(star);
+    }
+
+    function updateStars() {
+      const allStars = document.querySelectorAll(".star");
+      allStars.forEach(star => {
+        if (star.dataset.value <= selected) {
+          star.classList.add("active");
+        } else {
+          star.classList.remove("active");
+        }
+      });
+    }
+  </script>
+</body>
+</html>
