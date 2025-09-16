@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>เริ่มทำแบบทดสอบ</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <div class="container center">
+    
+    <h1>คุณเหมาะกับหนังเรื่องไหน</h1>
+    <img width=70px src="https://cdn-icons-png.freepik.com/512/4831/4831192.png">
+    <br>
+    <p>กรอกชื่อของคุณก่อนเริ่มเลย</p>
+    <input type="text" id="username" placeholder="พิมพ์ชื่อตรงนี้" >
+    <br>
+    <button class="btn" onclick="startQuiz()">เริ่มเลย</button>
+    <p>*ทุกคำตอบของคุณจะถูกนำไปใช้เพื่อประมวลผลเท่านั้น มิได้นำไปเก็บบันทึกแต่อย่างใด*</p>
+  </div>
+
+  <script>
+    function startQuiz() {
+      const name = document.getElementById("username").value.trim();
+      if (name === "") {
+        alert("กรุณากรอกชื่อก่อนนะคะ");
+        return;
+      }
+      localStorage.setItem("quizName", name);
+      window.location.href = "welcome.html";
+    }
+  </script>
+</body>
+</html>
