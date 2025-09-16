@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>สวัสดี</title>
+  <link rel="stylesheet" href="style.css">
+  <meta http-equiv="refresh" content="3;url=questions.html">
+</head>
+<body>
+  <div class="container center">
+    <h1 id="welcome-text"></h1>
+    <p>กำลังพาคุณเข้าสู่แบบประเมิน...</p>
+  </div>
+
+  <script>
+    const name = localStorage.getItem("quizName") || "คุณ";
+    document.getElementById("welcome-text").textContent = `สวัสดีคุณ${name}`;
+  </script>
+</body>
+</html>
